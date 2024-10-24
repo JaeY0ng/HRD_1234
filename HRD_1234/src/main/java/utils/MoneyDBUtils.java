@@ -17,8 +17,13 @@ public class MoneyDBUtils {
 	public static ResultSet rs;
 
 	public static void conn() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection(url, id, pw);
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			conn = DriverManager.getConnection(url, id, pw);
+			
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
 	}
 
 	public static void insert() throws Exception {
