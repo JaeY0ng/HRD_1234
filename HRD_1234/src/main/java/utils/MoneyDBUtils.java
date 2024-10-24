@@ -1,6 +1,7 @@
 package utils;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
@@ -11,12 +12,13 @@ public class MoneyDBUtils {
 	private static String id = "system";
 	private static String pw = "1234";
 
-	private static Connection conn;
-	private static PreparedStatement pstmt;
-	private static ResultSet rs;
+	public static Connection conn;
+	public static PreparedStatement pstmt;
+	public static ResultSet rs;
 
 	public static void conn() throws Exception {
-
+		Class.forName("oracle.jdbc.OracleDriver");
+		conn = DriverManager.getConnection(url, id, pw);
 	}
 
 	public static void insert() throws Exception {
@@ -41,18 +43,4 @@ public class MoneyDBUtils {
 
 	}
 
-	public void freeConnection(PreparedStatement pstmt) throws Exception {
-		pstmt.close();
-	}
-
-	public void freeConnection(PreparedStatement pstmt, ResultSet rs) throws Exception {
-		rs.close();
-		pstmt.close();
-	}
-
-	public void freeConnection(PreparedStatement pstmt, ResultSet rs, Connection conn) throws Exception {
-		rs.close();
-		pstmt.close();
-		conn.close();
-	}
 }

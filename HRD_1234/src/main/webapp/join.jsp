@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@page import = "DTO.*,utils.*" %>
+	
+	<%
+		MemberDBUtils.conn();	// db연결
+		int maxCustno = MemberDBUtils.maxCustno();
+		
+		//제거
+		MemberDBUtils.rs.close();
+		MemberDBUtils.pstmt.close();
+		MemberDBUtils.conn.close();
+	%>
 <!DOCTYPE html>
 <html>
 <head>
