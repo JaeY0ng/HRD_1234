@@ -1,5 +1,6 @@
 package DTO;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class MemberDTO {
@@ -86,6 +87,8 @@ public class MemberDTO {
 	public String toString() {
 		return "MemberDTO [custno=" + custno + ", custname=" + custname + ", phone=" + phone + ", address=" + address
 				+ ", joinDate=" + joinDate + ", grade=" + grade + ", city=" + city + "]";
-	};
+	}
+
+	
 
 }
